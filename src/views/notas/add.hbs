@@ -1,3 +1,28 @@
-<form action="">
-    
-</form>
+<div class="container p-4">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <form action="/notas/add" method="POST">
+                        <div class="row mb-3">
+                            <label for="titulo" class="form-label">
+                                <input type="text"class="form-control" name="titulo" placeholder="Titulo" autofocus>
+                            </label>
+                        </div>
+                       <div class="row mb-3">
+                            <label for="titulo" class="form-label">
+                                <textarea name="nota" rows="2" class="form-control" placeholder="nota"></textarea>
+                            </label>
+                        </div>
+                        <label for="boton" class="form-label">
+                            <button class="btn btn-primary">
+                                Guardar
+                            </button>
+                        </label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
