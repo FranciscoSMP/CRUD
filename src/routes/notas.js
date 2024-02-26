@@ -17,4 +17,9 @@ router.post('/add', async (req, res) => {
     res.send('recibido');
 });
 
+router.get('/', async (req, res) => {
+    const notas = await pool.query('SELECT * FROM notas');
+    res.render('notas/lista', { notas });
+}); 
+
 module.exports = router;

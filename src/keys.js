@@ -4,6 +4,6 @@ module.exports = {
         host: 'localhost',
         user: 'root',
         password: 'r62af79a',
-        database: 'db_notas'
+        database: 'base_de_datos_notas'
     }
 };
