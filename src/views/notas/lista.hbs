@@ -5,11 +5,13 @@
             <div class="col-md-3">
                 <div class="card text-center">
                     <div class="card-body">
-                        <a href="">
-                            <h3 class="card-title text-uppercase">
-                                {{titulo}}
-                            </h3>
-                        </a>
+                        <h3 class="card-title text-uppercase custom-title-color">
+                            {{titulo}}
+                        </h3>
+                        <p class="m-2">{{nota}}</p>
+                        <p>{{timeago creado_en}}</p>
+                        <a href="" class="btn btn-danger">Borrar Nota</a>
+                        <a href="" class="btn btn-secondary">Editar</a>
                     </div>
                 </div>
             </div>
