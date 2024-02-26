@@ -10,9 +10,16 @@
                         </h3>
                         <p class="m-2">{{nota}}</p>
                         <p>{{timeago creado_en}}</p>
-                        <a href="" class="btn btn-danger">Borrar Nota</a>
-                        <a href="" class="btn btn-secondary">Editar</a>
+                        <a href="/notas/eliminar/{{id}}" class="btn btn-danger">Borrar Nota</a>
+                        <a href="/notas/editar/{{id}}" class="btn btn-secondary">Editar</a>
                     </div>
+                </div>
+            </div>
+        {{else}}
+            <div class="col-md-4 mx-auto">
+                <div class="card card-body text-center">
+                    <p>No hay notas guardadas aún</p>
+                    <a href="/notas/add">Cree una Nota Nueva</a>
                 </div>
             </div>
         {{/each}}

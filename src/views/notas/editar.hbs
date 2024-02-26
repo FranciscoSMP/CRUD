@@ -3,15 +3,15 @@
         <div class="col-md-4 mx-auto">
             <div class="card">
                 <div class="card-body">
-                    <form action="/notas/add" method="POST">
+                    <form action="/notas/editar/{{nota.id}}" method="POST">
                         <div class="row mb-3">
                             <label for="titulo" class="form-label">
-                                <input type="text"class="form-control" name="titulo" placeholder="Titulo" autofocus>
+                                <input type="text" value="{{nota.titulo}}" class="form-control" name="titulo" placeholder="Titulo" autofocus>
                             </label>
                         </div>
                        <div class="row mb-3">
                             <label for="nota" class="form-label">
-                                <textarea name="nota" rows="14" class="form-control" placeholder="Nota"></textarea>
+                                <textarea name="nota" rows="14" class="form-control" placeholder="Nota">{{nota.nota}}</textarea>
                             </label>
                         </div>
                         <div class="d-grid gap-2 ">       
