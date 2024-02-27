@@ -44,13 +44,14 @@ app.use(passport.session());
 
 app.use((req, res, next) => {
     app.locals.success = req.flash('success');
+    app.locals.message = req.flash('message');
     next(); 
 });
   
 // Routes   
 
 app.use(require('./routes/index'));
-app.use(require('./routes/authentication'));
+app.use(require('./routes/autenticacion'));
 app.use('/notas', require('./routes/notas'));
 
 // Public
