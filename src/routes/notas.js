@@ -14,6 +14,7 @@ router.post('/add', async (req, res) => {
         nota
     };
     await pool.query('INSERT INTO notas set ?', [nuevaNota]);
+    req.flash('success', 'Nota guardada correctamente');
     res.redirect('/notas');
 });
 
@@ -25,6 +26,7 @@ router.get('/', async (req, res) => {
 router.get('/eliminar/:id', async (req, res) => {
     const { id } = req.params;
     await pool.query('DELETE FROM notas WHERE ID = ?', [id]);
+    req.flash('success', 'Nota removida correctamente');
     res.redirect('/notas');
 });
 
@@ -41,9 +43,8 @@ router.post('/editar/:id', async (req, res) =>{
         titulo,
         nota
     };
-    console.log(nuevaNota);
     await pool.query('UPDATE notas set ? WHERE id = ?', [nuevaNota, id]);
-    req.flash('success', 'Link Updated Successfully');
+    req.flash('success', 'Nota actualizada correctamente');
     res.redirect('/notas');
 });
 
