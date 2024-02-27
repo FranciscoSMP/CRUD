@@ -7,7 +7,26 @@
                 </div>
                 <div class="card-body">
                     <form action="/registro" method="POST">
-                    
+                    <div class="row mb-3">
+                        <label for="nombre_usuario" class="form-label">
+                            <input type="text" name="nombre_usuario" placeholder="Nombre de Usuario" class="form-control" autofocus>
+                        </label>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="correo" class="form-label">
+                            <input type="text" name="correo" placeholder="Correo Electrónico" class="form-control">
+                        </label>
+                    </div>
+                    <div class="row mb-3">
+                        <label for="contrasenia" class="form-group">
+                            <input type="password" name="constrasenia" placeholder="Contraseña" class="form-control">
+                        </label>
+                    </div>    
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-primary">
+                            Registrar
+                        </button>
+                    </div>
                     </form>
                 </div>
             </div>
