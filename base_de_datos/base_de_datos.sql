@@ -54,3 +54,6 @@ MODIFY
 
 -- Se muestra la estructura de la tabla usando DESCRIBE notas.
 DESCRIBE notas;
+
+-- Utilizando el método de autenticación mysql_native_password.
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'r62af79a';
