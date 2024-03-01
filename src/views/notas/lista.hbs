@@ -1,6 +1,5 @@
-<div class="container p-4">
+<div class="container p-4" style="max-height: 575px; overflow-y: auto;">
     <div class="row">
-
         {{#each notas}}
             <div class="col-md-3">
                 <div class="card text-center">
@@ -8,7 +7,9 @@
                         <h3 class="card-title text-uppercase custom-title-color">
                             {{titulo}}
                         </h3>
-                        <p class="m-2">{{nota}}</p>
+                        <div style="max-height: 200px; overflow-y: auto;">
+                            <p class="m-2">{{nota}}</p>
+                        </div>
                         <p>{{timeago creado_en}}</p>
                         <a href="/notas/eliminar/{{id}}" class="btn btn-danger">Borrar Nota</a>
                         <a href="/notas/editar/{{id}}" class="btn btn-secondary">Editar</a>
@@ -23,6 +24,5 @@
                 </div>
             </div>
         {{/each}}
-
     </div>
 </div>
