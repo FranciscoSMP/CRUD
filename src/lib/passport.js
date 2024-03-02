@@ -16,7 +16,7 @@ passport.use('login.local', new LocalStrategy({
         const user = rows[0]; // Obtiene el primer usuario encontrado.
         const validPassword = await helpers.compararContrasenia(contrasenia, user.contrasenia); // Verifica la contraseña.
         if (validPassword) { // Si la contraseña es válida.
-            done(null, user, req.flash('success', 'Welcome ' + user.nombre_usuario)); // Llama a done() para indicar autenticación exitosa.
+            done(null, user, req.flash('success', 'Bienvenido ' + user.nombre_usuario)); // Llama a done() para indicar autenticación exitosa.
         } else {
             done(null, false, req.flash('message', 'Contraseña Incorrecta')); // Llama a done() para indicar contraseña incorrecta.
         }
@@ -32,12 +32,21 @@ passport.use('registro.local', new LocalStrategy({
     passwordField: 'contrasenia', // Campo del formulario para la contraseña.
     passReqToCallback: true // Pasa el objeto de solicitud a la función de registro.
 }, async (req, nombre_usuario, contrasenia, done) => { // Función de registro de usuario.
-    const { correo_electronico } = req.body; // Extrae el correo electrónico del cuerpo de la solicitud.
+    const { correo_electronico } = req.body;
+
+    // Verifica si la contraseña cumple con los criterios de seguridad.
+    
+    const autContrasenia = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&()])[A-Za-z\d@$!%*?&()]{8,}$/;
+    if (!autContrasenia.test(contrasenia)) {
+        return done(null, false, req.flash('message', 'La contraseña debe contener al menos una mayúscula, una minúscula, un número y un carácter especial, y tener una longitud mínima de 8 caracteres.'));
+    }
+
     let nuevoUsuario = { // Crea un nuevo usuario.
         nombre_usuario,
         contrasenia,
         correo_electronico
     };
+
     nuevoUsuario.contrasenia = await helpers.cifrarContrasenia(contrasenia); // Cifra la contraseña.
     const result = await pool.query('INSERT INTO usuarios SET ? ', [nuevoUsuario]); // Inserta el nuevo usuario en la base de datos.
     nuevoUsuario.id = result.insertId; // Obtiene el ID del nuevo usuario.
